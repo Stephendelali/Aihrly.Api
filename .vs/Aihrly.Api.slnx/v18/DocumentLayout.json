@@ -1,0 +1,92 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\KOJO\\source\\repos\\Aihrly.Api\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{46A0C9C2-AA3B-282C-51ED-13FBA232DC0C}|Aihrly.Api\\Aihrly.Api.csproj|c:\\users\\kojo\\source\\repos\\aihrly.api\\aihrly.api\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{46A0C9C2-AA3B-282C-51ED-13FBA232DC0C}|Aihrly.Api\\Aihrly.Api.csproj|solutionrelative:aihrly.api\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46A0C9C2-AA3B-282C-51ED-13FBA232DC0C}|Aihrly.Api\\Aihrly.Api.csproj|c:\\users\\kojo\\source\\repos\\aihrly.api\\aihrly.api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A0C9C2-AA3B-282C-51ED-13FBA232DC0C}|Aihrly.Api\\Aihrly.Api.csproj|solutionrelative:aihrly.api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46A0C9C2-AA3B-282C-51ED-13FBA232DC0C}|Aihrly.Api\\Aihrly.Api.csproj|c:\\users\\kojo\\source\\repos\\aihrly.api\\aihrly.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A0C9C2-AA3B-282C-51ED-13FBA232DC0C}|Aihrly.Api\\Aihrly.Api.csproj|solutionrelative:aihrly.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46A0C9C2-AA3B-282C-51ED-13FBA232DC0C}|Aihrly.Api\\Aihrly.Api.csproj|c:\\users\\kojo\\source\\repos\\aihrly.api\\aihrly.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{46A0C9C2-AA3B-282C-51ED-13FBA232DC0C}|Aihrly.Api\\Aihrly.Api.csproj|solutionrelative:aihrly.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\KOJO\\source\\repos\\Aihrly.Api\\Aihrly.Api\\Program.cs",
+              "RelativeDocumentMoniker": "Aihrly.Api\\Program.cs",
+              "ToolTip": "C:\\Users\\KOJO\\source\\repos\\Aihrly.Api\\Aihrly.Api\\Program.cs",
+              "RelativeToolTip": "Aihrly.Api\\Program.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T14:05:04.197Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\KOJO\\source\\repos\\Aihrly.Api\\Aihrly.Api\\.gitignore",
+              "RelativeDocumentMoniker": "Aihrly.Api\\.gitignore",
+              "ToolTip": "C:\\Users\\KOJO\\source\\repos\\Aihrly.Api\\Aihrly.Api\\.gitignore",
+              "RelativeToolTip": "Aihrly.Api\\.gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-04-26T14:12:33.537Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\KOJO\\source\\repos\\Aihrly.Api\\Aihrly.Api\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Aihrly.Api\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\KOJO\\source\\repos\\Aihrly.Api\\Aihrly.Api\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Aihrly.Api\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T14:03:41.815Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\KOJO\\source\\repos\\Aihrly.Api\\Aihrly.Api\\appsettings.json",
+              "RelativeDocumentMoniker": "Aihrly.Api\\appsettings.json",
+              "ToolTip": "C:\\Users\\KOJO\\source\\repos\\Aihrly.Api\\Aihrly.Api\\appsettings.json",
+              "RelativeToolTip": "Aihrly.Api\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-26T14:02:29.339Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
