@@ -10,11 +10,13 @@ public class Application
     public Guid JobId { get; set; }
 
     [Required]
-    public string CandidateName { get; set; }
+    public required string CandidateName { get; set; }
 
     [Required]
     [EmailAddress]
-    public string CandidateEmail { get; set; }
+    public required string CandidateEmail { get; set; }
 
     public string Stage { get; set; } = "applied";
+    public Guid CreatedById { get; set; }
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 }
