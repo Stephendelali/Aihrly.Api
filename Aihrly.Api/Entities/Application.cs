@@ -16,7 +16,14 @@ public class Application
     [EmailAddress]
     public required string CandidateEmail { get; set; }
 
+    public string? CoverLetter { get; set; }
     public string Stage { get; set; } = "applied";
     public Guid CreatedById { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+    // Navigation properties
+    public Job Job { get; set; } = null!;
+    public ICollection<ApplicationNote> Notes { get; set; } = new List<ApplicationNote>();
+    public ICollection<Score> Scores { get; set; } = new List<Score>();
+    public ICollection<StageHistory> StageHistories { get; set; } = new List<StageHistory>();
 }

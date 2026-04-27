@@ -36,6 +36,9 @@ namespace Aihrly.Api.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("CoverLetter")
+                        .HasColumnType("text");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
@@ -50,6 +53,8 @@ namespace Aihrly.Api.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("JobId");
 
                     b.ToTable("Applications");
                 });
@@ -78,6 +83,8 @@ namespace Aihrly.Api.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ApplicationId");
 
                     b.ToTable("ApplicationNotes");
                 });
@@ -137,6 +144,8 @@ namespace Aihrly.Api.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ApplicationId");
+
                     b.ToTable("Scores");
                 });
 
@@ -168,6 +177,8 @@ namespace Aihrly.Api.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ApplicationId");
+
                     b.ToTable("StageHistories");
                 });
 
@@ -192,6 +203,53 @@ namespace Aihrly.Api.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TeamMembers");
+                });
+
+            modelBuilder.Entity("Aihrly.Api.Entities.Application", b =>
+                {
+                    b.HasOne("Aihrly.Api.Entities.Job", "Job")
+                        .WithMany()
+                        .HasForeignKey("JobId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Job");
+                });
+
+            modelBuilder.Entity("Aihrly.Api.Entities.ApplicationNote", b =>
+                {
+                    b.HasOne("Aihrly.Api.Entities.Application", null)
+                        .WithMany("Notes")
+                        .HasForeignKey("ApplicationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Aihrly.Api.Entities.Score", b =>
+                {
+                    b.HasOne("Aihrly.Api.Entities.Application", null)
+                        .WithMany("Scores")
+                        .HasForeignKey("ApplicationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Aihrly.Api.Entities.StageHistory", b =>
+                {
+                    b.HasOne("Aihrly.Api.Entities.Application", null)
+                        .WithMany("StageHistories")
+                        .HasForeignKey("ApplicationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Aihrly.Api.Entities.Application", b =>
+                {
+                    b.Navigation("Notes");
+
+                    b.Navigation("Scores");
+
+                    b.Navigation("StageHistories");
                 });
 #pragma warning restore 612, 618
         }
