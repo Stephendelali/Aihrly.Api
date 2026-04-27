@@ -1,6 +1,18 @@
-﻿namespace Aihrly.Api.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Aihrly.Api.Entities;
+
+public class Job
 {
-    public class Job
-    {
-    }
+    public Guid Id { get; set; }
+
+    [Required]
+    public string Title { get; set; }
+
+    [Required]
+    public string Description { get; set; }
+
+    public string Location { get; set; }
+
+    public string Status { get; set; } = "open"; // open / closed
 }

@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Aihrly.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260426174719_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20260427124539_AddCoreSchema")]
+    partial class AddCoreSchema
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
