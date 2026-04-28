@@ -18,12 +18,12 @@ public class NotesController : ControllerBase
 
     // POST /api/applications/{id}/notes
     [HttpPost("api/applications/{id}/notes")]
-    public async Task<IActionResult> AddNote(Guid id, [FromBody] CreateNoteDto dto)
+    public async Task<IActionResult> AddNote(
+        Guid id,
+        [FromBody] CreateNoteDto dto,
+        [FromHeader(Name = "X-Team-Member-Id")] Guid teamMemberId
+    )
     {
-        var memberId = Request.Headers["X-Team-Member-Id"].FirstOrDefault();
-        if (string.IsNullOrEmpty(memberId) || !Guid.TryParse(memberId, out var teamMemberId))
-            return BadRequest("Missing or invalid X-Team-Member-Id header");
-
         var member = await _context.TeamMembers.FindAsync(teamMemberId);
         if (member is null) return BadRequest("Team member not found");
 

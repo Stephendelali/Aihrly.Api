@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
 using DotNetEnv;
+using Microsoft.OpenApi.Models;
 using Aihrly.Api.Data;
 
 Env.Load();
@@ -22,7 +23,6 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Controllers + swagger
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 // CORS
 builder.Services.AddCors(options =>
@@ -33,6 +33,31 @@ builder.Services.AddCors(options =>
                           .AllowAnyMethod());
 });
 
+builder.Services.AddSwaggerGen(c =>
+{
+    c.AddSecurityDefinition("TeamMemberId", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+    {
+        Name = "X-Team-Member-Id",
+        Type = Microsoft.OpenApi.Models.SecuritySchemeType.ApiKey,
+        In = Microsoft.OpenApi.Models.ParameterLocation.Header,
+        Description = "Team Member ID for authenticated actions"
+    });
+
+    c.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
+    {
+        {
+            new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+            {
+                Reference = new Microsoft.OpenApi.Models.OpenApiReference
+                {
+                    Type = Microsoft.OpenApi.Models.ReferenceType.SecurityScheme,
+                    Id = "TeamMemberId"
+                }
+            },
+            Array.Empty<string>()
+        }
+    });
+});
 
 var app = builder.Build();
 
@@ -70,6 +95,7 @@ using (var scope = app.Services.CreateScope())
         context.SaveChanges();
     }
 }
+
 // Middleware pipeline
 if (app.Environment.IsDevelopment())
 {
