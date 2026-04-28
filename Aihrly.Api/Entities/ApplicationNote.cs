@@ -1,4 +1,4 @@
-﻿namespace Aihrly.Api.Entities;
+namespace Aihrly.Api.Entities;
 
 public class ApplicationNote
 {
@@ -6,9 +6,9 @@ public class ApplicationNote
 
     public Guid ApplicationId { get; set; }
 
-    public string Type { get; set; } // note, call, email
+    public required string Type { get; set; } // note, call, email
 
-    public string Description { get; set; }
+    public required string Description { get; set; }
 
     public Guid CreatedById { get; set; } // team member
 

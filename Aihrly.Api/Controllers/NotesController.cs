@@ -23,6 +23,7 @@ public class NotesController : ControllerBase
         [FromBody] CreateNoteDto dto,
         [FromHeader(Name = "X-Team-Member-Id")] Guid teamMemberId
     )
+
     {
         var member = await _context.TeamMembers.FindAsync(teamMemberId);
         if (member is null) return BadRequest("Team member not found");

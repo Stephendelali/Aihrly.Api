@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using Npgsql;
 using DotNetEnv;
 using Microsoft.OpenApi.Models;
 using Aihrly.Api.Data;
@@ -16,41 +15,38 @@ var password = Environment.GetEnvironmentVariable("DB_PASSWORD");
 var connectionString =
     $"Host={host};Port={port};Database={db};Username={user};Password={password}";
 
-// DbContext
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(connectionString));
 
-// Controllers + swagger
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
-// CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll",
         policy => policy.AllowAnyOrigin()
-                          .AllowAnyHeader()
-                          .AllowAnyMethod());
+                        .AllowAnyHeader()
+                        .AllowAnyMethod());
 });
 
 builder.Services.AddSwaggerGen(c =>
 {
-    c.AddSecurityDefinition("TeamMemberId", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+    c.AddSecurityDefinition("TeamMemberId", new OpenApiSecurityScheme
     {
         Name = "X-Team-Member-Id",
-        Type = Microsoft.OpenApi.Models.SecuritySchemeType.ApiKey,
-        In = Microsoft.OpenApi.Models.ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey,
+        In = ParameterLocation.Header,
         Description = "Team Member ID for authenticated actions"
     });
 
-    c.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         {
-            new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+            new OpenApiSecurityScheme
             {
-                Reference = new Microsoft.OpenApi.Models.OpenApiReference
+                Reference = new OpenApiReference
                 {
-                    Type = Microsoft.OpenApi.Models.ReferenceType.SecurityScheme,
+                    Type = ReferenceType.SecurityScheme,
                     Id = "TeamMemberId"
                 }
             },
@@ -61,11 +57,14 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
-// Seed TeamMembers
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    context.Database.Migrate();
+
+    if (context.Database.ProviderName != "Microsoft.EntityFrameworkCore.InMemory")
+    {
+        context.Database.Migrate();
+    }
 
     if (!context.TeamMembers.Any())
     {
@@ -96,7 +95,6 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-// Middleware pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -104,11 +102,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseCors("AllowAll");
-
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 
-Console.WriteLine(connectionString);
-
 app.Run();
+
+public partial class Program { }
