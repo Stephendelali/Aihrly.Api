@@ -36,6 +36,40 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+// Seed TeamMembers
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    context.Database.Migrate();
+
+    if (!context.TeamMembers.Any())
+    {
+        context.TeamMembers.AddRange(
+            new Aihrly.Api.Entities.TeamMember
+            {
+                Id = Guid.Parse("11111111-1111-1111-1111-111111111111"),
+                Name = "Alice Mensah",
+                Email = "alice@aihrly.com",
+                Role = "recruiter"
+            },
+            new Aihrly.Api.Entities.TeamMember
+            {
+                Id = Guid.Parse("22222222-2222-2222-2222-222222222222"),
+                Name = "Bob Asante",
+                Email = "bob@aihrly.com",
+                Role = "hiring_manager"
+            },
+            new Aihrly.Api.Entities.TeamMember
+            {
+                Id = Guid.Parse("33333333-3333-3333-3333-333333333333"),
+                Name = "Clara Owusu",
+                Email = "clara@aihrly.com",
+                Role = "recruiter"
+            }
+        );
+        context.SaveChanges();
+    }
+}
 // Middleware pipeline
 if (app.Environment.IsDevelopment())
 {

@@ -15,4 +15,9 @@ public class StageHistory
     public DateTime ChangedAt { get; set; } = DateTime.UtcNow;
 
     public string? Reason { get; set; }
+
+
+    // Navigation properties
+    public Application Application { get; set; } = null!;
+    public TeamMember ChangedBy { get; set; } = null!;
 }

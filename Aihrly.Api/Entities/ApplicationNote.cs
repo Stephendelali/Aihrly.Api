@@ -13,4 +13,8 @@ public class ApplicationNote
     public Guid CreatedById { get; set; } // team member
 
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+    // Navigation properties
+    public Application Application { get; set; } = null!;
+    public TeamMember CreatedBy { get; set; } = null!;
 }
